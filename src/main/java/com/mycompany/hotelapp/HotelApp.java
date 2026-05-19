@@ -87,6 +87,9 @@ public class HotelApp {
 
         System.out.println("Dime el nombre del cliente: ");
         String nombre = sc.nextLine();
+        
+        System.out.println("Dime el apellido del cliente: ");
+        String apellido = sc.nextLine();
 
         System.out.println("Dime el DNI del cliente: ");
         String dni = sc.nextLine();
@@ -104,7 +107,7 @@ public class HotelApp {
         if (cli != null) {
             System.out.println("Cliente con DNI " + dni + "ya existe.");
         } else {
-            Cliente cliente = new Cliente(nombre, dni, telf);
+            Cliente cliente = new Cliente(dni, telf, nombre, apellido);
             clientes.add(cliente);
             System.out.println("Cliente dado de alta.");
         }

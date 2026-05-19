@@ -8,31 +8,13 @@ package com.mycompany.hotelapp;
  *
  * @author salex
  */
-public class Empleado {
-    private String nombre;
-    private String apellido;
+public class Empleado extends Persona {
+
     private String puesto;
 
-    public Empleado(String nombre, String apellido, String puesto) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Empleado(String puesto, String nombre, String apellido) {
+        super(nombre, apellido);
         this.puesto = puesto;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
     }
 
     public String getPuesto() {
@@ -42,6 +24,5 @@ public class Empleado {
     public void setPuesto(String puesto) {
         this.puesto = puesto;
     }
-    
-    
+
 }
