@@ -13,11 +13,12 @@ import java.util.Scanner;
 public class HotelApp {
 
     static Scanner sc = new Scanner(System.in);
-
+    static ArrayList<Cliente> clientes = new ArrayList<>();
+    static ArrayList<Habitacion> habitaciones = new ArrayList<>();
+    static ArrayList<Reserva> reservas = new ArrayList<>();
+    
     public static void main(String[] args) {
-        ArrayList<Cliente> clientes = new ArrayList<>();
-        ArrayList<Habitacion> habitaciones = new ArrayList<>();
-        ArrayList<Reserva> reservas = new ArrayList<>();
+        
 
         System.out.println("Dime tu nombre:");
         String nombre = sc.nextLine();
@@ -37,22 +38,22 @@ public class HotelApp {
 
             switch (opc) {
                 case 1:
-                    darAltaCliente(clientes);
+                    darAltaCliente();
                     break;
                 case 2:
-                    darAltaHabitacion(habitaciones);
+                    darAltaHabitacion();
                     break;
                 case 3:
-                    crearReserva(clientes, habitaciones, reservas);
+                    crearReserva();
                     break;
                 case 4:
-                    anadirServicioReserva(reservas);
+                    anadirServicioReserva();
                     break;
                 case 5:
-                    mostrarFactura(reservas);
+                    mostrarFactura();
                     break;
                 case 6:
-                    cancelarReserva(reservas);
+                    cancelarReserva();
                     break;
                 case 7:
                     System.out.println("Saliendo del programa...");
@@ -81,7 +82,7 @@ public class HotelApp {
 
     }
 
-    public static void darAltaCliente(ArrayList<Cliente> clientes) {
+    public static void darAltaCliente() {
         Cliente cli = null;
 
         System.out.println("Dime el nombre del cliente: ");
@@ -110,7 +111,7 @@ public class HotelApp {
 
     }
 
-    public static void darAltaHabitacion(ArrayList<Habitacion> habitaciones) {
+    public static void darAltaHabitacion() {
         Habitacion hab = null;
 
         System.out.println("Dime el numero de la habitacion:");
@@ -141,7 +142,7 @@ public class HotelApp {
 
     }
 
-    public static void crearReserva(ArrayList<Cliente> clientes, ArrayList<Habitacion> habitaciones, ArrayList<Reserva> reservas) {
+    public static void crearReserva() {
         Cliente cli = null;
         Habitacion hab = null;
 
@@ -206,7 +207,7 @@ public class HotelApp {
 
     }
 
-    public static void anadirServicioReserva(ArrayList<Reserva> reservas) {
+    public static void anadirServicioReserva() {
         Reserva resv = null;
 
         System.out.println("Dime el DNI:");
@@ -233,7 +234,7 @@ public class HotelApp {
         }
     }
 
-    public static void mostrarFactura(ArrayList<Reserva> reservas) {
+    public static void mostrarFactura() {
         Reserva resv = null;
 
         System.out.println("Dime el DNI:");
@@ -260,7 +261,7 @@ public class HotelApp {
         System.out.println("Precio total: " + total + "€");
     }
 
-    public static void cancelarReserva(ArrayList<Reserva> reservas) {
+    public static void cancelarReserva() {
         Reserva resv = null;
 
         System.out.println("Dime el DNI:");
