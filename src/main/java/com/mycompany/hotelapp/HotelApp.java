@@ -16,9 +16,8 @@ public class HotelApp {
     static ArrayList<Cliente> clientes = new ArrayList<>();
     static ArrayList<Habitacion> habitaciones = new ArrayList<>();
     static ArrayList<Reserva> reservas = new ArrayList<>();
-    
+
     public static void main(String[] args) {
-        
 
         System.out.println("Dime tu nombre:");
         String nombre = sc.nextLine();
@@ -56,11 +55,14 @@ public class HotelApp {
                     cancelarReserva();
                     break;
                 case 7:
+                    mostrarHabitaciones();
+                    break;
+                case 8:
                     System.out.println("Saliendo del programa...");
                     break;
             }
 
-        } while (opc != 7);
+        } while (opc != 8);
     }
 
     public static int menu() {
@@ -72,7 +74,8 @@ public class HotelApp {
         System.out.println("4. Añadir servicios reserva");
         System.out.println("5. Mostrar factura reserva");
         System.out.println("6. Cancelar reserva");
-        System.out.println("7. Salir del programa");
+        System.out.println("7. Mostrar Habitaciones");
+        System.out.println("8. Salir del programa");
         System.out.println("Elige una opcion:");
 
         int opc = sc.nextInt();
@@ -87,7 +90,7 @@ public class HotelApp {
 
         System.out.println("Dime el nombre del cliente: ");
         String nombre = sc.nextLine();
-        
+
         System.out.println("Dime el apellido del cliente: ");
         String apellido = sc.nextLine();
 
@@ -253,7 +256,7 @@ public class HotelApp {
         if (resv == null) {
             System.out.println("No existe ninguna reserva con DNI " + dni);
         }
-            double total = resv.getImporte();
+        double total = resv.getImporte();
 
         if (resv.getServicios() != null && !resv.getServicios().isEmpty()) {
             for (Servicio servicio : resv.getServicios()) {
@@ -283,6 +286,18 @@ public class HotelApp {
             resv.getHabitacion().setDisponible(true);
             reservas.remove(resv);
             System.out.println("Reserva cancelada...");
+        }
+    }
+
+    private static void mostrarHabitaciones() {
+
+        if (habitaciones.isEmpty()) {
+            System.out.println("Ninguna habitacion registrada");
+            return;
+
+        }
+        for (Habitacion habitacion : habitaciones) {
+            System.out.println(habitacion.toString());
         }
     }
 }

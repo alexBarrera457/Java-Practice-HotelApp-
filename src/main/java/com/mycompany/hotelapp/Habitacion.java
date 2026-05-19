@@ -52,7 +52,10 @@ public class Habitacion {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Habitacion{" + "numero=" + numero + ", tipo=" + tipo + ", precio=" + precio + ", disponible=" + disponible + '}';
+    }
     
 }
