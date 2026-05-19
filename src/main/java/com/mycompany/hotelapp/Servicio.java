@@ -9,12 +9,15 @@ package com.mycompany.hotelapp;
  * @author salex
  */
 public class Servicio {
+
     private String nombre;
     private double precio;
+    private boolean premium;
 
-    public Servicio(String nombre, double precio) {
+    public Servicio(String nombre, double precio, boolean premium) {
         this.nombre = nombre;
         this.precio = precio;
+        this.premium = premium;
     }
 
     public String getNombre() {
@@ -32,6 +35,13 @@ public class Servicio {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
-    
+
+    public boolean isPremium() {
+        return premium;
+    }
+
+    public void setPremium(boolean premium) {
+        this.premium = premium;
+    }
+
 }

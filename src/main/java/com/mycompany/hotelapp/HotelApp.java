@@ -234,9 +234,21 @@ public class HotelApp {
             System.out.println("Precio del servicio:");
             double precio = sc.nextDouble();
             sc.nextLine();
+            System.out.println("¿Servicio premium?(1 = si | 2 = no)");
+            int opcion = sc.nextInt();
 
-            Servicio servicio = new Servicio(nombre, precio);
-            resv.getServicios().add(servicio);
+            if (opcion == 1) {
+                Servicio servicio = new Servicio(nombre, precio, true);
+                resv.getServicios().add(servicio);
+            }
+            if (opcion == 2) {
+                Servicio servicio = new Servicio(nombre, precio, false);
+                resv.getServicios().add(servicio);
+            }
+            else{
+                System.out.println("Opcion incorrecta...");
+            }
+
         }
     }
 
