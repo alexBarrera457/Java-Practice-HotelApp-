@@ -8,23 +8,15 @@ package com.mycompany.hotelapp;
  *
  * @author salex
  */
-public class Cliente {
-    private String nombre;
+public class Cliente extends Persona {
+
     private String dni;
     private String telefono;
 
-    public Cliente(String nombre, String dni, String telefono) {
-        this.nombre = nombre;
+    public Cliente(String dni, String telefono, String nombre, String apellido) {
+        super(nombre, apellido);
         this.dni = dni;
         this.telefono = telefono;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getDni() {
@@ -42,4 +34,5 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
 }
