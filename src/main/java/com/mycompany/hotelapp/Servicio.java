@@ -44,4 +44,9 @@ public class Servicio {
         this.premium = premium;
     }
 
+    @Override
+    public String toString() {
+        return "Servicio{" + "nombre=" + nombre + ", precio=" + precio + ", premium=" + premium + '}';
+    }
+
 }

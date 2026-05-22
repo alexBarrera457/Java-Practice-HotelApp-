@@ -35,4 +35,9 @@ public class Cliente extends Persona {
         this.telefono = telefono;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" + "dni=" + dni + ", telefono=" + telefono + '}';
+    }
+
 }
