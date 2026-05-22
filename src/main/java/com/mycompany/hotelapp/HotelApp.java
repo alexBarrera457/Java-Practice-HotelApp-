@@ -132,8 +132,13 @@ public class HotelApp {
         String tipo = sc.nextLine();
 
         System.out.println("Establece el precio de la habitacion por noche: ");
-        double precio = sc.nextDouble();
+        double valorPrecio = sc.nextDouble();
         sc.nextLine();
+        
+        System.out.println("Establece la moneda: ");
+        String moneda = sc.nextLine();
+        
+        Amount precio = new Amount(valorPrecio, moneda);
 
         for (Habitacion habitacion : habitaciones) {
             if (habitacion.getNumero() == num) {
@@ -195,7 +200,7 @@ public class HotelApp {
         Fecha salida = new Fecha(day2, month2, year2);
 
         int noches = (year2 * 365 + month2 * 30 + day2) - (year * 365 + month * 30 + day);
-        double importe = noches * hab.getPrecio();
+        double importe = noches * hab.getPrecio().getPrecio();
 
         if (cli == null) {
             System.out.println("No existe ningun cliente con DNI" + dni);
