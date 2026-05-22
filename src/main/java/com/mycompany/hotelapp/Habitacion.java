@@ -11,10 +11,10 @@ package com.mycompany.hotelapp;
 public class Habitacion {
     private int numero;
     private String tipo;
-    private double precio;
+    private Amount precio;
     private boolean disponible = true;
 
-    public Habitacion(int numero, String tipo, double precio, boolean disponible) {
+    public Habitacion(int numero, String tipo, Amount precio, boolean disponible) {
         this.numero = numero;
         this.tipo = tipo;
         this.precio = precio;
@@ -37,11 +37,11 @@ public class Habitacion {
         this.tipo = tipo;
     }
 
-    public double getPrecio() {
+    public Amount getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(Amount precio) {
         this.precio = precio;
     }
 
@@ -57,5 +57,6 @@ public class Habitacion {
     public String toString() {
         return "Habitacion{" + "numero=" + numero + ", tipo=" + tipo + ", precio=" + precio + ", disponible=" + disponible + '}';
     }
+
     
 }
