@@ -75,4 +75,9 @@ public class Reserva {
         this.servicios = servicios;
     }
 
+    @Override
+    public String toString() {
+        return "Reserva{" + "cliente=" + cliente + ", habitacion=" + habitacion + ", entrada=" + entrada + ", salida=" + salida + ", importe=" + importe + ", servicios=" + servicios + '}';
+    }
+
 }

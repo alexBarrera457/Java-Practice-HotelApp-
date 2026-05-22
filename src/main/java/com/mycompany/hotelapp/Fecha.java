@@ -9,6 +9,7 @@ package com.mycompany.hotelapp;
  * @author salex
  */
 public class Fecha {
+
     private int dia;
     private int mes;
     private int año;
@@ -42,6 +43,10 @@ public class Fecha {
     public void setAño(int año) {
         this.año = año;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Fecha{" + "dia=" + dia + ", mes=" + mes + ", a\u00f1o=" + año + '}';
+    }
+
 }

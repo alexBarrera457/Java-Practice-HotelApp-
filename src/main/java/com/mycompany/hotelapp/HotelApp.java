@@ -58,11 +58,14 @@ public class HotelApp {
                     mostrarHabitaciones();
                     break;
                 case 8:
+                    mostrarReservas();
+                    break;
+                case 9:
                     System.out.println("Saliendo del programa...");
                     break;
             }
 
-        } while (opc != 8);
+        } while (opc != 9);
     }
 
     public static int menu() {
@@ -75,7 +78,8 @@ public class HotelApp {
         System.out.println("5. Mostrar factura reserva");
         System.out.println("6. Cancelar reserva");
         System.out.println("7. Mostrar Habitaciones");
-        System.out.println("8. Salir del programa");
+        System.out.println("8. Mostrar Reservas");
+        System.out.println("9. Salir del programa");
         System.out.println("Elige una opcion:");
 
         int opc = sc.nextInt();
@@ -244,8 +248,7 @@ public class HotelApp {
             if (opcion == 2) {
                 Servicio servicio = new Servicio(nombre, precio, false);
                 resv.getServicios().add(servicio);
-            }
-            else{
+            } else {
                 System.out.println("Opcion incorrecta...");
             }
 
@@ -310,6 +313,17 @@ public class HotelApp {
         }
         for (Habitacion habitacion : habitaciones) {
             System.out.println(habitacion.toString());
+        }
+    }
+
+    private static void mostrarReservas() {
+        if (reservas.isEmpty()) {
+            System.out.println("Ninguna reserva hecha");
+            return;
+        }
+        
+        for( Reserva reserva : reservas){
+            System.out.println(reserva.toString());
         }
     }
 }
