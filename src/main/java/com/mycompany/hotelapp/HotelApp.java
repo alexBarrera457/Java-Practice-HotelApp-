@@ -134,23 +134,17 @@ public class HotelApp {
         System.out.println("Establece el precio de la habitacion por noche: ");
         double valorPrecio = sc.nextDouble();
         sc.nextLine();
-        
+
         System.out.println("Establece la moneda: ");
         String moneda = sc.nextLine();
-        
+
         Amount precio = new Amount(valorPrecio, moneda);
 
-        for (Habitacion habitacion : habitaciones) {
-            if (habitacion.getNumero() == num) {
-                hab = habitacion;
-                break;
-            }
-        }
+        Habitacion habitacion = new Habitacion(num, tipo, precio, true);
 
-        if (hab != null) {
+        if (habitaciones.contains(habitacion)) {
             System.out.println("Habitacion" + num + "ya existe");
         } else {
-            Habitacion habitacion = new Habitacion(num, tipo, precio, true);
             habitaciones.add(habitacion);
             System.out.println("Habitacion dada de alta.");
         }
@@ -326,8 +320,8 @@ public class HotelApp {
             System.out.println("Ninguna reserva hecha");
             return;
         }
-        
-        for( Reserva reserva : reservas){
+
+        for (Reserva reserva : reservas) {
             System.out.println(reserva.toString());
         }
     }
