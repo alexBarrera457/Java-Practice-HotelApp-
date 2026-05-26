@@ -19,6 +19,11 @@ public class Cliente extends Persona {
         this.telefono = telefono;
     }
 
+    public Cliente(String dni) {
+        super(null, null);
+        this.dni = dni;
+    }
+
     public String getDni() {
         return dni;
     }

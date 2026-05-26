@@ -217,21 +217,17 @@ public class HotelApp {
     }
 
     public static void anadirServicioReserva() {
-        Reserva resv = null;
 
         System.out.println("Dime el DNI:");
         String dni = sc.nextLine();
 
-        for (Reserva reserva : reservas) {
-            if (reserva.getCliente().getDni().equalsIgnoreCase(dni)) {
-                resv = reserva;
-                break;
-            }
-        }
+        Reserva busqueda = new Reserva(dni);
 
-        if (resv == null) {
+        if (!reservas.contains(busqueda)) {
             System.out.println("No existe ninguna reserva con DNI " + dni);
         } else {
+            Reserva reserva = reservas.get(reservas.indexOf(busqueda)); // obtenemos la reserva real
+
             System.out.println("Dime el nombre del servicio:");
             String nombre = sc.nextLine();
             System.out.println("Precio del servicio:");
@@ -239,66 +235,58 @@ public class HotelApp {
             sc.nextLine();
             System.out.println("¿Servicio premium?(1 = si | 2 = no)");
             int opcion = sc.nextInt();
+            sc.nextLine();
 
             if (opcion == 1) {
-                Servicio servicio = new Servicio(nombre, precio, true);
-                resv.getServicios().add(servicio);
-            }
-            if (opcion == 2) {
-                Servicio servicio = new Servicio(nombre, precio, false);
-                resv.getServicios().add(servicio);
+                reserva.getServicios().add(new Servicio(nombre, precio, true));
+            } else if (opcion == 2) {
+                reserva.getServicios().add(new Servicio(nombre, precio, false));
             } else {
                 System.out.println("Opcion incorrecta...");
             }
-
         }
     }
 
     public static void mostrarFactura() {
-        Reserva resv = null;
 
         System.out.println("Dime el DNI:");
         String dni = sc.nextLine();
 
-        for (Reserva reserva : reservas) {
-            if (reserva.getCliente().getDni().equalsIgnoreCase(dni)) {
-                resv = reserva;
-                break;
-            }
-        }
+        Reserva busqueda = new Reserva(dni);
 
-        if (resv == null) {
+        if (!reservas.contains(busqueda)) {
             System.out.println("No existe ninguna reserva con DNI " + dni);
-        }
-        double total = resv.getImporte();
 
-        if (resv.getServicios() != null && !resv.getServicios().isEmpty()) {
-            for (Servicio servicio : resv.getServicios()) {
-                total += servicio.getPrecio();
+        } else {
+            Reserva reserva = reservas.get(reservas.indexOf(busqueda));
+            double total = reserva.getImporte();
+
+            if (reserva.getServicios() != null && !reserva.getServicios().isEmpty()) {
+                for (Servicio servicio : reserva.getServicios()) {
+                    total += servicio.getPrecio();
+                }
             }
+
+            System.out.println("Precio total: " + total + "€");
+
         }
 
-        System.out.println("Precio total: " + total + "€");
     }
 
     public static void cancelarReserva() {
-        Reserva resv = null;
 
         System.out.println("Dime el DNI:");
         String dni = sc.nextLine();
 
-        for (Reserva reserva : reservas) {
-            if (reserva.getCliente().getDni().equalsIgnoreCase(dni)) {
-                resv = reserva;
-                break;
-            }
-        }
+        Reserva busqueda = new Reserva(dni);
 
-        if (resv == null) {
+        if (!reservas.contains(busqueda)) {
             System.out.println("No existe ninguna reserva con DNI " + dni);
+
         } else {
-            resv.getHabitacion().setDisponible(true);
-            reservas.remove(resv);
+            Reserva reserva = reservas.get(reservas.indexOf(busqueda));
+            reserva.getHabitacion().setDisponible(true);
+            reservas.remove(reserva);
             System.out.println("Reserva cancelada...");
         }
     }

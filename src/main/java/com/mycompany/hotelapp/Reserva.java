@@ -27,6 +27,10 @@ public class Reserva {
         this.importe = importe;
     }
 
+    public Reserva(String dni) {
+        this.cliente = new Cliente(dni);
+    }
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -73,6 +77,12 @@ public class Reserva {
 
     public void setServicios(ArrayList<Servicio> servicios) {
         this.servicios = servicios;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Reserva resv = (Reserva) o;
+        return this.cliente.getDni().equals(resv.cliente.getDni());
     }
 
     @Override
